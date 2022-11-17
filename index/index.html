@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>E-povpraševanja</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="shortcut icon" type="image/png" href="img/szfavicon.png">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+<section>
+	<article>
+		<div>
+			<h1>Povpraševanje za prevoz</h1>
+		</div>
+		<div>
+			<label for="fname">Ime podjetja<span style="color: red; font-size: 20px;">*</span></label>
+			<input type="text" id="fname" placeholder="Vnesi ime podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+		</div>
+		<div>
+			<label for="lname">Naslov<span style="color: red; font-size: 20px;">*</span></label>
+			<input type="text" id="lname" placeholder="Vnesi naslov podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+		</div>
+		<div>
+			<label for="lname">Kraj<span style="color: red; font-size: 20px;">*</span></label>
+			<input type="text" id="lname" placeholder="Vnesi ime kraja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+		</div>
+		<div>
+			<label for="mail">Poštna številka<span style="color: red; font-size: 20px;">*</span></label>
+			<input type="email" id="mail" maxlength="6" placeholder="Vnesi poštno številko" pattern="[0,9]">
+		</div>
+		<div>
+		<label>Država<span style="color: red; font-size: 20px;">*</span></label><br>
+			<select style="margin-left:40px" name=state id="state"  size="1" title="Izberi državo">
+      <option value=" " selected>- Izberi državo -</option>
+      <option value="SI" >SI	Slovenija                                          </option>
+      <option value="AL" >AL	Albanija                                           </option>
+      <option value="AM" >AM	Armenija                                           </option>
+      <option value="AT" >AT	Avstrija                                           </option>
+      <option value="AZ" >AZ	Azerbajdžan                                        </option>
+      <option value="BE" >BE	Belgija                                            </option>
+      <option value="BY" >BY	Belorusija                                         </option>
+      <option value="BG" >BG	Bolgarija                                          </option>
+      <option value="BA" >BA	Bosna in Hercegovina                               </option>
+      <option value="DK" >DK	Danska                                             </option>
+      <option value="EE" >EE	Estonija                                           </option>
+      <option value="FI" >FI	Finska                                             </option>
+      <option value="FR" >FR	Francija                                           </option>
+      <option value="GE" >GE	Gruzija                                            </option>
+      <option value="GR" >GR	Grčija                                             </option>
+      <option value="IQ" >IQ	Irak                                               </option>
+      <option value="IR" >IR	Iran                                               </option>
+      <option value="IE" >IE	Irska                                              </option>
+      <option value="IT" >IT	Italija                                            </option>
+      <option value="IL" >IL	Izrael                                             </option>
+      <option value="KZ" >KZ	Kazahstan                                          </option>
+      <option value="KG" >KG	Kirgizistan                                        </option>
+      <option value="LV" >LV	Latvija                                            </option>
+      <option value="LT" >LT	Litva                                              </option>
+      <option value="LU" >LU	Luksemburg                                         </option>
+      <option value="HU" >HU	Madžarska                                          </option>
+      <option value="MK" >MK	Makedonija                                         </option>
+      <option value="MD" >MD	Moldavija                                          </option>
+      <option value="DE" >DE	Nemčija                                            </option>
+      <option value="NL" >NL	Nizozemska                                         </option>
+      <option value="NO" >NO	Norveška                                           </option>
+      <option value="PL" >PL	Poljska                                            </option>
+      <option value="PT" >PT	Portugalska                                        </option>
+      <option value="RO" >RO	Romunija                                           </option>
+      <option value="RU" >RU	Rusija                                             </option>
+      <option value="SK" >SK	Slovaška                                           </option>
+      <option value="SI" >SI	Slovenija                                          </option>
+      <option value="RS" >RS	Srbija                                             </option>
+      <option value="TJ" >TJ	Tadžikistan                                        </option>
+      <option value="TN" >TN	Tunizija                                           </option>
+      <option value="TM" >TM	Turkmenistan                                       </option>
+      <option value="TR" >TR	Turčija                                            </option>
+      <option value="UA" >UA	Ukrajina                                           </option>
+      <option value="UZ" >UZ	Uzbekistan                                         </option>
+      <option value="GB" >GB	Velika Britanija                                   </option>
+      <option value="ES" >ES	Španija                                            </option>
+      <option value="SE" >SE	Švedska                                            </option>
+      <option value="CH" >CH	Švica                                              </option>
+      <option value="CZ" >CZ	Češka                                              </option>
+      <option value="ME" >ME	Črna Gora                                          </option>
+    </select>
+		</div>
+		<div>
+			<label 	for="fname">Kontaktna oseba</label>
+			<input  type="text" id="fname" placeholder="Vnesi ime kontaktne osebe" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+		</div>
+		<div>
+			<label for="phno">Telefon<span style="color: red; font-size: 20px;">*</span></label>
+			<input  type="text" id="fname" placeholder="Vnesi telefonsko številko kontaktne osebe" maxlength="9" pattern="[0,9]" required>
+		</div>
+		<div>
+			<label for="mail">E-mail<span style="color: red; font-size: 20px;">*</span></label>
+			<input type="email" id="mail" maxlength="50" placeholder="Vnesi e-mail kontaktne osebe" pattern="[A,Z][a,z][0,9], @, .">
+		</div>
+		<div>
+			<label for="phno">Referenčna številka</label>
+			<input type="text" id="lname" placeholder="Vnesi referenčno številko" maxlength="20" pattern="[0,9]" required>
+		</div>
+		<div class="login">
+			<button onclick="fireSweetAlert()">Pošlji </button>
+			<script>
+				function fireSweetAlert(){
+				Swal.fire({
+				icon: 'success',
+				title: 'Poslano. Hvala za vaše sodelovanje.'
+				})
+				event.preventDefault();
+				}
+				form.addEventListener("submit",fireSweetAlert);
+			</script>
+		</div>
+	</article>
+</section>
+</body>
+<p style="text-align:center; color:black">©Slovenske železnice - Tovorni promet, 2005 | Pravna obvestila</p>
+</html>
