@@ -16,24 +16,24 @@
 		</div>
 		<div>
 			<label for="fname">Ime podjetja<span style="color: red; font-size: 20px;">*</span></label>
-			<input type="text" id="fname" placeholder="Vnesi ime podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+			<input type="text" id="ime" placeholder="Vnesi ime podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
 		</div>
 		<div>
 			<label for="lname">Naslov<span style="color: red; font-size: 20px;">*</span></label>
-			<input type="text" id="lname" placeholder="Vnesi naslov podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+			<input type="text" id="naslov" placeholder="Vnesi naslov podjetja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
 		</div>
 		<div>
 			<label for="lname">Kraj<span style="color: red; font-size: 20px;">*</span></label>
-			<input type="text" id="lname" placeholder="Vnesi ime kraja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+			<input type="text" id="kraj" placeholder="Vnesi ime kraja" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
 		</div>
 		<div>
 			<label for="mail">Poštna številka<span style="color: red; font-size: 20px;">*</span></label>
-			<input type="email" id="mail" maxlength="6" placeholder="Vnesi poštno številko" pattern="[0,9]">
+			<input type="email" id="postnaSt" maxlength="6" placeholder="Vnesi poštno številko" pattern="[0,9]">
 		</div>
 		<div>
 		<label>Država<span style="color: red; font-size: 20px;">*</span></label><br>
-			<select style="margin-left:40px" name=state id="state"  size="1" title="Izberi državo">
-      <option value=" " selected>- Izberi državo -</option>
+			<select style="margin-left:40px" name="state" id="drzava"  size="1" title="Izberi državo">
+      <option value="1" selected>- Izberi državo -</option>
       <option value="SI" >SI	Slovenija                                          </option>
       <option value="AL" >AL	Albanija                                           </option>
       <option value="AM" >AM	Armenija                                           </option>
@@ -88,31 +88,161 @@
 		</div>
 		<div>
 			<label 	for="fname">Kontaktna oseba</label>
-			<input  type="text" id="fname" placeholder="Vnesi ime kontaktne osebe" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
+			<input  type="text" id="kime" placeholder="Vnesi ime kontaktne osebe" maxlength="50" pattern="[A,Z][a,z][0,9]" required>
 		</div>
 		<div>
 			<label for="phno">Telefon<span style="color: red; font-size: 20px;">*</span></label>
-			<input  type="text" id="fname" placeholder="Vnesi telefonsko številko kontaktne osebe" maxlength="9" pattern="[0,9]" required>
+			<input  type="text" id="tel" placeholder="Vnesi telefonsko številko kontaktne osebe" maxlength="9" pattern="[0,9]" required>
 		</div>
 		<div>
 			<label for="mail">E-mail<span style="color: red; font-size: 20px;">*</span></label>
-			<input type="email" id="mail" maxlength="50" placeholder="Vnesi e-mail kontaktne osebe" pattern="[A,Z][a,z][0,9], @, .">
+			<input type="email" id="email" maxlength="50" placeholder="Vnesi e-mail kontaktne osebe" pattern="[A,Z][a,z][0,9], @, .">
 		</div>
 		<div>
 			<label for="phno">Referenčna številka</label>
-			<input type="text" id="lname" placeholder="Vnesi referenčno številko" maxlength="20" pattern="[0,9]" required>
+			<input type="text" id="refSt" placeholder="Vnesi referenčno številko" maxlength="20" pattern="[0,9]" required>
 		</div>
 		<div class="login">
-			<button onclick="fireSweetAlert()">Pošlji </button>
+			<button class="button" id="sweetalert">Pošlji </button>
 			<script>
-				function fireSweetAlert(){
-				Swal.fire({
-				icon: 'success',
-				title: 'Poslano. Hvala za vaše sodelovanje.'
-				})
-				event.preventDefault();
-				}
-				form.addEventListener("submit",fireSweetAlert);
+					
+	document.getElementById('sweetalert').addEventListener('click',function(){
+	
+	var ime = document.getElementById('ime').value;
+	var naslov = document.getElementById("naslov").value;
+	var kraj = document.getElementById("kraj").value;
+	var postnaSt = document.getElementById("postnaSt").value;
+	var drzava = document.getElementById("drzava").value;
+	var tel = document.getElementById("tel").value;
+	var email = document.getElementById("email").value;
+
+	var validName = /^[A-Za-z\s]*$/;
+	var validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var validPhoneNum = /^[0-9]+$/;
+	
+	
+	if(1==1)
+	Swal.fire({
+			icon: 'success', 
+			title: 'Successfully submitted'
+		})
+		
+		if(email==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši email'
+		})
+	}else{
+		if (email.match(validEmail))
+			return true;
+		else 
+			Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši pravilen email'
+		})
+			return false;
+	}
+	
+	
+	
+	
+	if(tel==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši telefonsko številko'
+		})
+	}else{
+		if (tel.match(validPhoneNum))
+			return true;
+		else 
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši pravilno telefonsko številko'
+		})
+			
+			return false;
+	}
+	
+	
+	
+	
+	if(drzava=="1")
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Izberi državo'
+		})
+		
+		
+		
+		
+		
+		if(postnaSt==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši poštno številko'
+		})
+	}else{
+		if (postnaSt<1000&&postnaSt>9265)
+		else 
+			Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši pravilno poštno številko'
+		})
+		}
+		
+		
+		
+		
+	if(kraj==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši kraj'
+		})
+	}else{
+		if (kraj.match(validName))
+			return true;
+		else 
+			Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši pravilen kraj'
+		})
+		}
+		
+		
+	if(naslov==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Enter your email'
+		})
+	}else{
+		if (naslov.match(validEmail))
+			return true;
+		else 
+			Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši svoj naslov'
+		})
+			return false;
+	}
+	
+	
+	if(ime==""){
+		Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši svoje ime'
+		})
+	}else{
+		if (ime.match(validName))
+			return true;
+		}else{
+			Swal.fire({
+			icon: 'warning', 
+			title: 'Vpiši pravilno ime'
+		})
+			return false;
+		}
+	
+	})	
 			</script>
 		</div>
 	</article>
