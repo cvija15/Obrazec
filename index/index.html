@@ -107,146 +107,122 @@
 			<script>
 					
 	document.getElementById('sweetalert').addEventListener('click',function(){
-	
-	var ime = document.getElementById('ime').value;
-	var naslov = document.getElementById("naslov").value;
-	var kraj = document.getElementById("kraj").value;
-	var postnaSt = document.getElementById("postnaSt").value;
-	var drzava = document.getElementById("drzava").value;
-	var tel = document.getElementById("tel").value;
-	var email = document.getElementById("email").value;
 
-	var validName = /^[A-Za-z\s]*$/;
-	var validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	var validPhoneNum = /^[0-9]+$/;
-	
-	
-	if(1==1)
+var ime = document.getElementById('ime').value;
+var naslov = document.getElementById("naslov").value;
+var kraj = document.getElementById("kraj").value;
+var postnaSt = document.getElementById("postnaSt").value;
+var drzava = document.getElementById("drzava").value;
+var tel = document.getElementById("tel").value;
+var email = document.getElementById("email").value;
+
+var validName = /^[A-Za-z\s]*$/;
+var validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var validPhoneNum = /^[0-9]+$/;
+
+
+if(1==1)
+Swal.fire({
+		icon: 'success', 
+		title: 'Poslano!'
+	})
+	if(email==""){
 	Swal.fire({
-			icon: 'success', 
-			title: 'Successfully submitted'
-		})
-		
-		if(email==""){
+		icon: 'warning', 
+		title: 'Vnesi email'
+	})
+}else{
+	if (email.match(validEmail))
+		return true;
+	else 
 		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši email'
-		})
-	}else{
-		if (email.match(validEmail))
-			return true;
-		else 
-			Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši pravilen email'
-		})
-			return false;
+		icon: 'warning', 
+		title: 'Vnesi pravilen email'
+	})
+		return false;
+}
+if(tel==""){
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi telefonsko številko'
+	})
+}else{
+	if (tel.match(validPhoneNum))
+		return true;
+	else 
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi pravilno telefonsko številko'
+	})
+		
+		return false;
+}
+
+
+
+
+if(drzava=="1")
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Izberi državo'
+	})
+
+
+	if(postnaSt==""){
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi poštno številko'
+	})
+	}else if(postnaSt<1000&&postnaSt>9265){
+		Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi pravilno poštno številko'
+	})
 	}
 	
-	
-	
-	
-	if(tel==""){
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši telefonsko številko'
-		})
-	}else{
-		if (tel.match(validPhoneNum))
-			return true;
-		else 
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši pravilno telefonsko številko'
-		})
-			
-			return false;
-	}
-	
-	
-	
-	
-	if(drzava=="1")
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Izberi državo'
-		})
-		
-		
-		
-		
-		
-		if(postnaSt==""){
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši poštno številko'
-		})
-	}else{
-		if (postnaSt<1000&&postnaSt>9265)
-		else 
-			Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši pravilno poštno številko'
-		})
-		}
-		
-		
-		
-		
 	if(kraj==""){
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi kraj'
+	})
+}else{
+	if (kraj.match(validName))
+		return true;
+	else 
 		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši kraj'
-		})
-	}else{
-		if (kraj.match(validName))
-			return true;
-		else 
-			Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši pravilen kraj'
-		})
-		}
-		
-		
-	if(naslov==""){
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Enter your email'
-		})
-	}else{
-		if (naslov.match(validEmail))
-			return true;
-		else 
-			Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši svoj naslov'
-		})
-			return false;
+		icon: 'warning', 
+		title: 'Vnesi pravilen kraj'
+	})
+	}
+if(naslov==""){
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vnesi naslov'
+	})
 	}
 	
-	
-	if(ime==""){
-		Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši svoje ime'
-		})
+
+if(ime==""){
+	Swal.fire({
+		icon: 'warning', 
+		title: 'Vpiši svoje ime'
+	})
+}else if (ime.match(validName)){
+		return true;
 	}else{
-		if (ime.match(validName))
-			return true;
-		}else{
-			Swal.fire({
-			icon: 'warning', 
-			title: 'Vpiši pravilno ime'
-		})
-			return false;
-		}
+		Swal.fire({
+		icon: 'warning', 
+		title: 'Vpiši pravilno ime'
+	})
+		return false;
+	}
 	
-	})	
-			</script>
-		</div>
-	</article>
+})
+		</script>
+		
+	</div>
+	<p style="text-align:center; color:black">©Slovenske železnice - Tovorni promet, 2005 | Pravna obvestila</p>
+</article>
 </section>
 </body>
-<p style="text-align:center; color:white">©Slovenske železnice - Tovorni promet, 2005 | Pravna obvestila</p>
 </html>
